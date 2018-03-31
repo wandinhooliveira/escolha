@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <h1>Escolha entre: </h1>
+	<div class="content">
+		<div id="img_esquerda">
+				<form action="../" method="post">{% csrf_token %}
+
+						<input type="hidden" name="vencedor" value="votos1" />
+						<input type="hidden" name="slug" value="{{disputa.slug}}" />
+						<input class="imgbt" type=image src="{{disputa.foto1.url}}" width="300" height="300">
+				</form>
+				<h2>{{disputa.nome1}}</h2>
+                <h3>{{disputa.votos1}} Votos</h3>
+		</div>
+		<div id="img_direita">
+				<form action="../" method="post">{% csrf_token %}
+
+						<input type="hidden" name="vencedor" value="votos2" />
+						<input type="hidden" name="slug" value="{{disputa.slug}}" />
+						<input class="imgbt" type=image src="{{disputa.foto2.url}}" width="300" height="300">
+				</form>
+				<h2>{{disputa.nome2}}</h2>
+                <h3>{{disputa.votos2}} Votos</h3>
+						
+		</div>
+    </div>
+
+    {% endblock %}
